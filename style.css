@@ -2,10 +2,10 @@
 body {
   font-family: 'Helvetica Neue', sans-serif;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
   background-color: #ffffff;
   color: #333;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 /* ヘッダー */
@@ -117,5 +117,6 @@ footer .sns-links li a {
 
   form {
     width: 100%;
+    padding: 16px; 
   }
 }
