@@ -14,9 +14,31 @@ body {
   padding: 20px;
 }
 
+/* ------------------- */
+/* ヘッダー背景の強制指定 */
+/* ------------------- */
+header {
+  background-color: rgba(41, 35, 255, 0.8) !important;
+  /* rgba(青系) + 半透明 */
+  padding: 20px 0 !important;
+}
+
+/* ナビリンクを白く */
+header nav a {
+  color: white !important;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bold;
+}
+
+/* ホバー時のリンク色 */
+header nav a:hover {
+  color: #eeddff !important;
+}
+
 /* 🏠 ヘッダー＆ナビ */
 header {
-  background-color: #222;
+  background-color: hwb(241 23% 8%);
   padding: 20px;
   text-align: center;
 }
@@ -39,6 +61,16 @@ nav a {
 nav a:hover {
   color: #a8d8ea;
 }
+
+.navbar {
+  background-color: rgba(0, 0, 64, 0.4); /* 透過ブルー */
+  backdrop-filter: blur(4px); /* ガラス風 */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
 
 /* 🎨 メインビジュアル */
 .main-visual {
@@ -103,7 +135,7 @@ nav a:hover {
 }
 
 footer {
-  background-color: #222;   /* 濃い背景 */
+  background-color: hwb(241 23% 8%);   /* 濃い背景 */
   color: #fff;              /* 白文字 */
   text-align: center;
   padding: 10px 0;
