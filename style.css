@@ -78,14 +78,44 @@ footer .sns-links li a {
   border-radius: 8px;
 }
 
-/* レスポンシブ調整 */
+/* （スマホサイズ）レスポンシブ調整 */
+
 @media screen and (max-width: 768px) {
-  nav ul {
+  header nav ul {
     flex-direction: column;
+    align-items: center;
+    padding: 0;
     gap: 10px;
   }
 
   main {
-    padding: 20px 10px;
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .sns-links {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  form {
+    width: 100%;
   }
 }
