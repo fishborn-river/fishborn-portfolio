@@ -11,21 +11,122 @@
 
 <body>
 
+<!-- ヘッダー（固定ナビ） -->
 <header>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
       <li><a href="works.html">Works</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
 
+<!-- ロゴ（中央表示） -->
+<div class="logo">
+  <img src="logo.png" alt="ロゴ画像">
+</div>
+
+
 <main>
-  キャッチコピー
+<br>
+  キャッチコピー<br>
+  <br>
+  <br>
+  <img src="一番見せたい画像.jpg" alt="一番見せたい画像"><br>
+  <br>
+  <br>
   メインビジュアル（将来はアニメーション or 画像）<br>
+  <br>
+  <br>
   News（展示・新作などのお知らせ）
+  <br>
+  <br>
+  <br>
+  <br>
+    あなたの自己紹介（about）<br>
+    <br>
+  好きなこと／得意なこと<br>
+  <br>
+  Concept文<br>
+  <br>
+  Skill・使えるツール<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </main>
 
 <footer>
@@ -36,6 +137,18 @@
   <li><a href="https://youtube.com/@hiomamori12" target="_blank"><i class="bi bi-youtube"></i></a></li>
 </ul>
 </footer>
+
+<!-- キャラ画像 -->
+<img src="falling-character.gif" class="scroll-follow" alt="キャラ">
+
+<!-- JavaScript -->
+<script>
+  window.addEventListener("scroll", function () {
+    const scrolled = window.scrollY;
+    const char = document.querySelector(".scroll-follow");
+    char.style.top = scrolled + 100 + "px";
+  });
+</script>
 
 </body>
 </html>

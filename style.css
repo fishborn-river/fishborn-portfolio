@@ -8,34 +8,55 @@ body {
   padding-bottom: 40px;
 }
 
-/* ヘッダー */
+/* ヘッダー全体のスタイル */
 header {
-  background-color: #0033cc !important; /* GitHubで反映されない問題に対応 */
-  color: white;
-  padding: 10px 0;
+  background-color: rgba(173, 216, 230, 0.3); /* 水色（lightblue）＋30%の不透明度 */
+  color: #0033cc; /* ヘッダーの文字色を青に */
+  padding: 20px 0; /* 上下の余白を大きめに */
+  backdrop-filter: blur(4px); /* 背景ぼかし効果（対応ブラウザのみ） */
+    /* ヘッダーを常に上部に固定 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* 最前面に */
 }
 
+/* ナビゲーションリスト（ul） */
 nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
+  display: flex; /* 横並びにする */
+  justify-content: flex-end; /* リスト全体を右詰にする */
+  list-style: none; /* リストの「・」を消す */
   margin: 0;
-  padding: 0;
+  padding: 0 40px; /* 右寄せの余白 */
 }
 
+/* 各ナビゲーション項目（li） */
 nav ul li {
-  margin: 0 20px;
+  margin-left: 30px; /* 各リンクの左にスペース */
 }
 
+/* 各ナビゲーションリンク（a） */
 nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+  color: #0033cc; /* 文字色を青に変更 */
+  text-decoration: none; /* 下線を消す */
+  font-weight: 800; /* フォントの太さをかなり太く（700が通常のbold） */
+  font-size: 20px; /* フォントサイズを大きめに */
+}
+
+/* ロゴ（ナビの下、中央配置） */
+.logo {
+  margin-top: 80px; /* ヘッダーとの間隔を取る（必要に応じて調整） */
+  text-align: center;
+}
+
+.logo img {
+  height: 80px; /* お好みでサイズ調整 */
 }
 
 /* メインコンテンツ */
 main {
-  padding: 40px 20px;
+   padding: 100px 20px 40px; /* 上の余白を増やす（ヘッダー分） */
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -77,6 +98,27 @@ footer .sns-links li a {
   height: auto;
   border-radius: 8px;
 }
+
+/* 背景GIFを敷く設定（bodyの背景画像） */
+body {
+  /* 既存の背景色は上書きされるので注意 */
+  background: url("background.gif") no-repeat center center fixed; /* 背景画像（差し替えOK）を中央＆固定表示 */
+  background-size: cover; /* 全体に広げる */
+  z-index: -1; /* 背景が前に出すぎないように */
+}
+
+/* スクロールで落下するキャラ用 */
+.scroll-follow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 150px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+
 
 /* （スマホサイズ）レスポンシブ調整 */
 
