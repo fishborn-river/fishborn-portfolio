@@ -10,7 +10,7 @@ body {
 
 /* ヘッダー全体のスタイル */
 header {
-  background-color: rgba(173, 216, 230, 0.3); /* 水色（lightblue）＋30%の不透明度 */
+  background-color: rgba(255, 255, 255, 0.3); /* 白色（lightblue）＋30%の不透明度 */
   color: #0033cc; /* ヘッダーの文字色を青に */
   padding: 20px 0; /* 上下の余白を大きめに */
   backdrop-filter: blur(4px); /* 背景ぼかし効果（対応ブラウザのみ） */
@@ -82,6 +82,16 @@ footer .sns-links li a {
   color: white;
   text-decoration: none;
   font-size: 20px;
+}
+
+/* 一番見せたい画像：小さめのアイコン表示を左詰に */
+.main-icon {
+  width: 80px;           /* アイコンサイズ */
+  height: 80px;
+  display: block;
+  margin: 20px 0;        /* 上下に余白、左右は詰める */
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 /* カードデザイン */
@@ -161,4 +171,75 @@ body {
     width: 100%;
     padding: 16px; 
   }
+}
+
+/* =======================
+News セクション（トップページ）
+========================== */
+
+.news-section {
+padding: 80px 20px;
+background-color: #f4f8ff; /* 淡い青背景で雰囲気統一 */
+}
+
+.news-title {
+text-align: center;
+font-size: 32px;
+color: #0033cc;
+font-weight: bold;
+margin-bottom: 40px;
+}
+
+.news-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 30px;
+}
+
+.news-card {
+width: 300px;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+overflow: hidden;
+transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+transform: translateY(-5px);
+}
+
+.news-img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+}
+
+.news-text {
+padding: 20px;
+}
+
+.news-text h3 {
+font-size: 20px;
+color: #0033cc;
+margin-bottom: 10px;
+}
+
+.news-text p {
+font-size: 14px;
+color: #444;
+line-height: 1.6;
+}
+
+/* ====== スマホ対応 ====== */
+@media screen and (max-width: 768px) {
+.news-container {
+flex-direction: column;
+align-items: center;
+}
+
+.news-card {
+width: 90%;
+}
 }
