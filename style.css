@@ -118,14 +118,22 @@ body {
 }
 
 /* スクロールで落下するキャラ用 */
-.scroll-follow {
-  position: absolute;
+/* キャラクター画像（ページ中央・背景の手前） */
+.center-character {
+  position: fixed;                /* スクロールしても中央に固定 */
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  top: 0;
-  width: 150px;
-  z-index: 10;
-  pointer-events: none;
+  transform: translate(-50%, -50%); /* 正確に中央揃え */
+  z-index: 0;                     /* 背景GIFより前、他の要素より後ろ */
+  pointer-events: none;          /* クリックや操作を無効にする */
+  width: 200px;                  /* サイズは必要に応じて調整 */
+  opacity: 0.8;                  /* ちょっと透けさせてもOK */
+}
+
+body {
+  background: url("background.gif") no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1; /* 明示的に最背面 */
 }
 
 
@@ -177,59 +185,42 @@ body {
 News セクション（トップページ）
 ========================== */
 
-.news-section {
-padding: 80px 20px;
-background-color: #f4f8ff; /* 淡い青背景で雰囲気統一 */
-}
-
-.news-title {
-text-align: center;
-font-size: 32px;
-color: #0033cc;
-font-weight: bold;
-margin-bottom: 40px;
-}
-
-.news-container {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 30px;
-}
-
+/* ニュースカード全体：横長で縦並び */
 .news-card {
-width: 300px;
-background-color: white;
-border-radius: 10px;
-box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-overflow: hidden;
-transition: transform 0.3s ease;
+  position: relative;  /* z-indexを効かせるために必要 */
+  z-index: 1;           /* キャラクターより前に出す */
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.news-card:hover {
-transform: translateY(-5px);
+/* カード内の画像 */
+.news-card img {
+  width: 120px;
+  height: auto;
+  border-radius: 6px;
+  margin-right: 16px;
+  object-fit: cover;
+} 
+
+/* カード内のテキスト */
+.news-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
 }
 
-.news-img {
-width: 100%;
-height: 180px;
-object-fit: cover;
+.news-content h3 a {
+  text-decoration: none;
+  color: #0033cc;
+  font-weight: bold;
 }
 
-.news-text {
-padding: 20px;
-}
-
-.news-text h3 {
-font-size: 20px;
-color: #0033cc;
-margin-bottom: 10px;
-}
-
-.news-text p {
-font-size: 14px;
-color: #444;
-line-height: 1.6;
+.news-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
 }
 
 /* ====== スマホ対応 ====== */
@@ -242,4 +233,26 @@ align-items: center;
 .news-card {
 width: 90%;
 }
+}
+
+/*  モバイル対応はこのままでもOKだけど、さらに小さい画面では flex-direction: column; に切り替えたい */
+@media screen and (max-width: 600px) {
+  .news-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .news-card img {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+
+  .news-content h3 {
+    font-size: 16px;
+  }
+
+  .news-content p {
+    font-size: 13px;
+  }
 }
