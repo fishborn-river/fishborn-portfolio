@@ -1,69 +1,103 @@
-/* 全体の基本スタイル */
+/* =====================
+   全体の基本スタイル
+===================== */
 body {
   font-family: 'Helvetica Neue', sans-serif;
   line-height: 1.6;
-  background-color: #ffffff;
+  background: url("background.gif") no-repeat center center fixed;
+  background-size: cover;
   color: #333;
   padding-top: 20px;
   padding-bottom: 40px;
+  z-index: -1; /* 背景が前に出すぎないように */
 }
 
-/* ヘッダー全体のスタイル */
+/* =====================
+   ヘッダー関連スタイル
+===================== */
 header {
-  background-color: rgba(255, 255, 255, 0.3); /* 白色（lightblue）＋30%の不透明度 */
-  color: #0033cc; /* ヘッダーの文字色を青に */
-  padding: 20px 0; /* 上下の余白を大きめに */
-  backdrop-filter: blur(4px); /* 背景ぼかし効果（対応ブラウザのみ） */
-    /* ヘッダーを常に上部に固定 */
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #0033cc;
+  padding: 20px 0;
+  backdrop-filter: blur(4px);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* 最前面に */
+  z-index: 1000;
 }
 
-/* ナビゲーションリスト（ul） */
 nav ul {
-  display: flex; /* 横並びにする */
-  justify-content: flex-end; /* リスト全体を右詰にする */
-  list-style: none; /* リストの「・」を消す */
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
   margin: 0;
-  padding: 0 40px; /* 右寄せの余白 */
+  padding: 0 40px;
 }
 
-/* 各ナビゲーション項目（li） */
 nav ul li {
-  margin-left: 30px; /* 各リンクの左にスペース */
+  margin-left: 30px;
 }
 
-/* 各ナビゲーションリンク（a） */
 nav ul li a {
-  color: #0033cc; /* 文字色を青に変更 */
-  text-decoration: none; /* 下線を消す */
-  font-weight: 800; /* フォントの太さをかなり太く（700が通常のbold） */
-  font-size: 20px; /* フォントサイズを大きめに */
+  color: #0033cc;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 20px;
 }
 
-/* ロゴ（ナビの下、中央配置） */
 .logo {
-  margin-top: 80px; /* ヘッダーとの間隔を取る（必要に応じて調整） */
+  margin-top: 80px;
   text-align: center;
 }
 
 .logo img {
-  height: 80px; /* お好みでサイズ調整 */
+  height: 80px;
 }
 
-/* メインコンテンツ */
+/* =========================
+   名前＋アイコン（上部） 
+========================= */
+.name-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.name-text h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.name-text h5 {
+  margin: 4px 0 0 0;
+  font-weight: normal;
+  font-size: 16px;
+}
+/* =====================
+   メインコンテンツ
+===================== */
 main {
-   padding: 100px 20px 40px; /* 上の余白を増やす（ヘッダー分） */
+  padding: 100px 20px 40px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* フッター */
+.main-icon {
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 20px 0;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* =====================
+   フッター
+===================== */
 footer {
-  background-color: #0033cc !important; /* 同じ青色、!importantで上書き */
+  background-color: #0033cc !important;
   color: white;
   text-align: center;
   padding: 20px 0;
@@ -84,111 +118,26 @@ footer .sns-links li a {
   font-size: 20px;
 }
 
-/* 一番見せたい画像：小さめのアイコン表示を左詰に */
-.main-icon {
-  width: 80px;           /* アイコンサイズ */
-  height: 80px;
-  display: block;
-  margin: 20px 0;        /* 上下に余白、左右は詰める */
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* カードデザイン */
-.card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* 背景GIFを敷く設定（bodyの背景画像） */
-body {
-  /* 既存の背景色は上書きされるので注意 */
-  background: url("background.gif") no-repeat center center fixed; /* 背景画像（差し替えOK）を中央＆固定表示 */
-  background-size: cover; /* 全体に広げる */
-  z-index: -1; /* 背景が前に出すぎないように */
-}
-
-/* スクロールで落下するキャラ用 */
-/* キャラクター画像（ページ中央・背景の手前） */
+/* =====================
+   背景キャラクター
+===================== */
 .center-character {
-  position: fixed;                /* スクロールしても中央に固定 */
+  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* 正確に中央揃え */
-  z-index: 0;                     /* 背景GIFより前、他の要素より後ろ */
-  pointer-events: none;          /* クリックや操作を無効にする */
-  width: 200px;                  /* サイズは必要に応じて調整 */
-  opacity: 0.8;                  /* ちょっと透けさせてもOK */
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  width: 200px;
+  opacity: 0.8;
 }
 
-body {
-  background: url("background.gif") no-repeat center center fixed;
-  background-size: cover;
-  z-index: -1; /* 明示的に最背面 */
-}
-
-
-
-/* （スマホサイズ）レスポンシブ調整 */
-
-@media screen and (max-width: 768px) {
-  header nav ul {
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    gap: 10px;
-  }
-
-  main {
-    padding: 20px;
-    font-size: 16px;
-  }
-
-  footer {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .sns-links {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .card {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  form {
-    width: 100%;
-    padding: 16px; 
-  }
-}
-
-/* =======================
-News セクション（トップページ）
-========================== */
-
-/* ニュースカード全体：横長で縦並び */
+/* =====================
+   News セクション
+===================== */
 .news-card {
-  position: relative;  /* z-indexを効かせるために必要 */
-  z-index: 1;           /* キャラクターより前に出す */
+  position: relative;
+  z-index: 1;
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
@@ -196,16 +145,14 @@ News セクション（トップページ）
   border-radius: 8px;
 }
 
-/* カード内の画像 */
 .news-card img {
   width: 120px;
   height: auto;
   border-radius: 6px;
   margin-right: 16px;
   object-fit: cover;
-} 
+}
 
-/* カード内のテキスト */
 .news-content h3 {
   margin: 0 0 8px 0;
   font-size: 18px;
@@ -223,31 +170,100 @@ News セクション（トップページ）
   color: #333;
 }
 
-/* ====== スマホ対応 ====== */
+/* =====================
+   Worksなど共通カード
+===================== */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+
+/* ====== 768px以下（タブレット・スマホ）対応 ====== */
 @media screen and (max-width: 768px) {
-.news-container {
-flex-direction: column;
-align-items: center;
+  /* ナビゲーションを縦並びにする */
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    gap: 10px;
+  }
+
+  /* メインコンテンツの余白・文字サイズ調整 */
+  main {
+    padding: 24px 20px;
+    font-size: 16px;
+  }
+
+  /* フッターを縦並びにし、中央揃え */
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* SNSアイコンリストの横並び */
+  .sns-links {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Worksページなどのカード幅調整 */
+  .card {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  /* 全体の画像を画面幅にフィットさせる */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* お問い合わせフォームの余白調整 */
+  form {
+    width: 100%;
+    padding: 16px;
+  }
+
+  /* Newsセクションのレイアウト変更（縦並び） */
+  .news-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .news-card {
+    width: 90%;
+  }
 }
 
-.news-card {
-width: 90%;
-}
-}
-
-/*  モバイル対応はこのままでもOKだけど、さらに小さい画面では flex-direction: column; に切り替えたい */
+/* ====== 600px以下（小型スマホ）対応 ====== */
 @media screen and (max-width: 600px) {
+  /* Newsカードを縦レイアウトに */
   .news-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
+  /* News画像のマージン調整 */
   .news-card img {
     margin-right: 0;
     margin-bottom: 12px;
   }
 
+  /* Newsタイトルと本文の文字サイズ調整 */
   .news-content h3 {
     font-size: 16px;
   }
@@ -255,4 +271,21 @@ width: 90%;
   .news-content p {
     font-size: 13px;
   }
+}
+/* YouTube動画をレスポンシブ対応で中央に表示 */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* アスペクト比16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 800px;       /* 最大幅を大きめに設定（必要なら調整） */
+  margin: 20px auto;      /* 上下に余白＋中央寄せ */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
