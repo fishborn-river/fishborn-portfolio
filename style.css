@@ -122,14 +122,14 @@ footer .sns-links li a {
    背景キャラクター
 ===================== */
 .center-character {
-  position: fixed;
+  position: fixed;                  /* 中央に固定 */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
-  pointer-events: none;
-  width: 200px;
-  opacity: 0.8;
+  z-index: 0;                       /* 背景のGIFより前、他の要素より後ろ */
+  pointer-events: none;            /* クリックや操作を無効にする */
+  width: 320px;                     /* 必要なら調整 */
+  opacity: 0.85;                   /* 少し透けさせたい場合 */
 }
 
 /* =====================
