@@ -26,32 +26,38 @@
   SNSリンク
   FAQ（よくある質問）
 
-  <!-- メアド入力 -->
-<div class="mb-3">
-  <label for="emailInput" class="form-label">メールアドレス</label>
-  <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
-</div>
-<!-- 納期入力欄 -->
-<div class="mb-3">
-  <label for="deadlineInput" class="form-label">納期</label>
-  <input type="date" class="form-control" id="deadlineInput">
-</div>
-<!-- 概要 -->
-<div class="mb-3">
-  <label for="messageInput" class="form-label">内容</label>
-  <textarea class="form-control" id="messageInput" rows="3"></textarea>
-</div>
-<!-- 送信ボタン -->
-<div class="col-12">
-  <button class="btn btn-primary" type="submit">送信</button>
-</div>
+<!-- ==============================
+  お問い合わせフォーム（Formspree使用）
+  納期・概要などの項目を追加済み
+================================ -->
+<form action="https://formspree.io/f/xeozryop" method="POST">
+
+  <!-- メールアドレス入力欄 -->
+  <label for="email">メールアドレス</label>
+  <input type="email" id="email" name="email" required placeholder="name@example.com">
+
+  <!-- 納期入力欄（日付） -->
+  <label for="deadline">納期</label>
+  <input type="date" id="deadline" name="deadline">
+
+  <!-- 概要入力欄（短文） -->
+  <label for="summary">概要</label>
+  <input type="text" id="summary" name="summary" placeholder="ざっくりした概要をご記入ください">
+
+  <!-- 内容入力欄（本文） -->
+  <label for="message">内容</label>
+  <textarea id="message" name="message" rows="5" placeholder="詳細内容をご自由にお書きください"></textarea>
+
+  <!-- 送信ボタン -->
+  <button type="submit">送信</button>
+</form>
 
 </main>
 
 <footer>
   <p>&copy; 2025 Hi-omamori</p>
 <ul class="sns-links">
-  <li><a href="https://x.com/hi_omamori" target="_blank"><i class="bi bi-twitter-x"></i></a></li>
+  <li><a href="https://x.com/fishborn_river?s=21" target="_blank"><i class="bi bi-twitter-x"></i></a></li>
   <li><a href="https://instagram.com/hi_omamori" target="_blank"><i class="bi bi-instagram"></i></a></li>
   <li><a href="https://youtube.com/@hiomamori12" target="_blank"><i class="bi bi-youtube"></i></a></li>
 </ul>

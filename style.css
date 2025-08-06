@@ -4,7 +4,7 @@
 body {
   font-family: 'Helvetica Neue', sans-serif;
   line-height: 1.6;
-  background: url("background.gif") no-repeat center center fixed;
+  background: url("./image/背景魚.GIF") no-repeat center center fixed;
   background-size: cover;
   color: #333;
   padding-top: 20px;
@@ -173,21 +173,95 @@ footer .sns-links li a {
 /* =====================
    Worksなど共通カード
 ===================== */
+
 .card {
+  /* カードの外枠設定 */
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 30px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* カード内の画像サイズ設定 */
 .card img {
-  width: 100%;
+  /* ニュースと同じサイズに統一（小さめ） */
+  width: 120px;
   height: auto;
   border-radius: 8px;
+  object-fit: cover;
+}
+
+/* カード全体をリンクにするための設定 */
+.card-link {
+  display: block;             /* ブロック要素化して全体に適用 */
+  text-decoration: none;      /* 下線消す */
+  color: inherit;             /* 文字色を親に合わせる */
+}
+
+/* ホバー時のエフェクト */
+.card:hover {
+  /* ホバー時にふわっと浮き上がるように見せる */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 
+
+/* =====================
+   workページ内の大きな画像
+   ===================== */
+.work-image {
+  display: block;           /* 中央寄せのためにブロック化 */
+  max-width: 90%;           /* 画面の90%以内に制限 */
+  width: 500px;             /* 最大サイズ（お好みで調整OK） */
+  margin: 0 auto 40px auto; /* 上:0px 右:auto 下:40px 左:auto → 中央寄せ+下余白 */
+  border-radius: 10px;      /* 角丸をつける（任意） */
+}
+
+
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 40px auto;
+  font-family: sans-serif;
+}
+
+form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+form button {
+  background-color: #0033cc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #001f99;
+}
 
 /* ====== 768px以下（タブレット・スマホ）対応 ====== */
 @media screen and (max-width: 768px) {
