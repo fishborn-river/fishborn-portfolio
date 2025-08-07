@@ -363,3 +363,27 @@ form button:hover {
   width: 100%;
   height: 100%;
 }
+
+/* ====== ナビの記述 ====== */
+
+nav ul {
+  list-style: none;
+  display: flex; /* ← 横並びにする */
+  justify-content: center; /* 真ん中寄せ */
+  gap: 20px; /* ナビゲーションの間隔 */
+  padding: 0;
+  margin: 0;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #000; /* 必要に応じて色調整 */
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  nav ul {
+    gap: 12px;
+    font-size: 14px;
+  }
+}
