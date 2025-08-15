@@ -403,3 +403,68 @@ nav li a {
   width: 100%;
   height: 100%;
 }
+
+/* ===========================
+   ▼ スマホ時のヘッダー重なり対策（上書き用）
+   ※ 既存指定より下に置くこと。!importantで絶対配置を無効化
+   =========================== */
+
+@media (max-width: 768px) {
+
+  /* ヘッダーを重ねない：固定ではなくstickyで上に留めるだけ */
+  header {
+    position: sticky;       /* fixedを使っていても、ここで上書き */
+    top: 0;
+    background: #fff;       /* 下の要素が透けないように背景をつける */
+    z-index: 1000;          /* ほかの要素より前面に */
+    display: flex;          /* アイコン＋ナビを縦積みしやすくする土台 */
+    flex-direction: column; /* 縦並び（横幅が狭いので） */
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  /* ナビの“絶対配置/変形”などを強制解除（ここが重なり原因の本丸） */
+  header nav {
+    position: static !important;   /* absolute / fixed を無効化 */
+    transform: none !important;    /* translateで中央寄せしてる場合を解除 */
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 100%;                   /* 画面幅を素直に使う */
+  }
+
+  /* リストをフレックスで整列＋折り返しでかぶり防止 */
+  header nav ul {
+    display: flex;
+    flex-wrap: wrap;               /* 文字が長くても折り返して重ならない */
+    justify-content: center;       /* 中央寄せ */
+    gap: 14px;                     /* タブ間の余白 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* それぞれのタブをタップしやすく */
+  header nav a {
+    display: block;
+    padding: 6px 10px;             /* タップ領域を確保 */
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  /* ヘッダー内のアイコン画像のサイズを安全側に（他の画像には影響しない） */
+  header img {
+    max-height: 56px;              /* デカすぎてナビと干渉しないように */
+    height: auto;
+    width: auto;
+  }
+}
+
+/* ▼ もしどうしてもheaderをfixedで使いたいケース（任意）
+   bodyに .has-fixed-header を付けるだけで main に上余白を確保できます */
+:root { --header-h-sp: 72px; }
+@media (max-width: 768px) {
+  body.has-fixed-header main { padding-top: var(--header-h-sp); } /* かぶり防止 */
+}
