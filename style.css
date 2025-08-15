@@ -2,14 +2,22 @@
    全体の基本スタイル
 ===================== */
 body {
-  font-family: 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  background: url("./image/background-fish.GIF") no-repeat center center fixed;
-  background-size: cover;
-  color: #333;
-  padding-top: 20px;
-  padding-bottom: 40px;
-  z-index: -1; /* 背景が前に出すぎないように */
+  font-family: 'Helvetica Neue', sans-serif; /* ベースフォント */
+  line-height: 1.6;                           /* 行間 */
+  color: #333;                                /* テキストカラー */
+  padding-top: 20px;                          /* ヘッダーとの間隔 */
+  padding-bottom: 40px;                       /* フッターとの間隔 */
+  margin: 0;                                   /* デフォルトの余白除去 */
+}
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;             /* 背景に回す */
+  pointer-events: none;    /* 背景として無効化（クリックなど不可に） */
 }
 
 /* =====================
@@ -415,7 +423,7 @@ nav li a {
   header {
     position: sticky;       /* fixedを使っていても、ここで上書き */
     top: 0;
-    background: #fff;       /* 下の要素が透けないように背景をつける */
+    background:  rgba(255, 255, 255, 0.3);       /* 下の要素が透けないように背景をつける */
     z-index: 1000;          /* ほかの要素より前面に */
     display: flex;          /* アイコン＋ナビを縦積みしやすくする土台 */
     flex-direction: column; /* 縦並び（横幅が狭いので） */
