@@ -263,55 +263,63 @@ form button:hover {
   background-color: #001f99;
 }
 
-/* ====== 768px以下（タブレット・スマホ）対応 ====== */
+/* ============================
+   768px以下（スマホ・タブレット）
+   ============================ */
 @media screen and (max-width: 768px) {
-  /* ナビゲーションを縦並びにする */
-  header nav ul {
+  /* ナビゲーションを縦並びに変更 */
+  nav ul {
     flex-direction: column;
     align-items: center;
     padding: 0;
-    gap: 10px;
+    gap: 12px;
+    font-size: 16px;
   }
 
-  /* メインコンテンツの余白・文字サイズ調整 */
+  /* スマホでヘッダーが隠れないよう余白追加 */
+  header {
+    padding-top: 60px; /* アドレスバーやUIと被らないための余白 */
+  }
+
+  /* メインコンテンツのパディング調整 */
   main {
     padding: 24px 20px;
     font-size: 16px;
   }
 
-  /* フッターを縦並びにし、中央揃え */
+  /* フッターを縦並びにして中央揃え */
   footer {
     flex-direction: column;
     text-align: center;
     gap: 10px;
   }
 
-  /* SNSアイコンリストの横並び */
+  /* SNSリンクを横並びにして中央揃え */
   .sns-links {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
   }
 
-  /* Worksページなどのカード幅調整 */
+  /* 作品カードを100%幅に調整 */
   .card {
     width: 100%;
     margin: 10px 0;
   }
 
-  /* 全体の画像を画面幅にフィットさせる */
+  /* 全ての画像を画面幅にフィットさせる */
   img {
     max-width: 100%;
     height: auto;
   }
 
-  /* お問い合わせフォームの余白調整 */
+  /* お問い合わせフォームの幅と余白調整 */
   form {
     width: 100%;
     padding: 16px;
   }
 
-  /* Newsセクションのレイアウト変更（縦並び） */
+  /* Newsセクションを縦並びレイアウトに変更 */
   .news-container {
     flex-direction: column;
     align-items: center;
@@ -322,16 +330,19 @@ form button:hover {
   }
 }
 
-/* ====== 600px以下（小型スマホ）対応 ====== */
+
+/* ============================
+   600px以下（小型スマホ用）
+   ============================ */
 @media screen and (max-width: 600px) {
-  /* Newsカードを縦レイアウトに */
+  /* Newsカードをさらに縦並びにして中央揃え */
   .news-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  /* News画像のマージン調整 */
+  /* News画像の余白調整 */
   .news-card img {
     margin-right: 0;
     margin-bottom: 12px;
@@ -345,15 +356,44 @@ form button:hover {
   .news-content p {
     font-size: 13px;
   }
+
+  /* ナビのフォントサイズ調整（より小型用） */
+  nav ul {
+    font-size: 14px;
+    gap: 10px;
+  }
 }
-/* YouTube動画をレスポンシブ対応で中央に表示 */
+
+
+/* ============================
+   共通ナビゲーションのスタイル
+   ============================ */
+nav ul {
+  list-style: none;
+  display: flex;              /* 横並び */
+  justify-content: center;    /* 中央揃え */
+  gap: 20px;                  /* リンク間の余白 */
+  padding: 0;
+  margin: 0;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #000;               /* テキスト色 */
+  font-weight: bold;
+}
+
+
+/* ============================
+  YouTube動画レスポンシブ対応
+   ============================ */
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* アスペクト比16:9 */
+  padding-bottom: 56.25%;    /* アスペクト比16:9 */
   height: 0;
   overflow: hidden;
-  max-width: 800px;       /* 最大幅を大きめに設定（必要なら調整） */
-  margin: 20px auto;      /* 上下に余白＋中央寄せ */
+  max-width: 800px;
+  margin: 20px auto;
 }
 
 .video-container iframe {
@@ -362,28 +402,4 @@ form button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-/* ====== ナビの記述 ====== */
-
-nav ul {
-  list-style: none;
-  display: flex; /* ← 横並びにする */
-  justify-content: center; /* 真ん中寄せ */
-  gap: 20px; /* ナビゲーションの間隔 */
-  padding: 0;
-  margin: 0;
-}
-
-nav li a {
-  text-decoration: none;
-  color: #000; /* 必要に応じて色調整 */
-  font-weight: bold;
-}
-
-@media screen and (max-width: 600px) {
-  nav ul {
-    gap: 12px;
-    font-size: 14px;
-  }
 }
